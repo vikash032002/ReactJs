@@ -32,8 +32,14 @@
     cursor: pointer;
 }
 
-.search{
+.fillter{
     padding: 10px;
+    
+}
+
+.pizza{
+    margin: 5px;
+
 }
 
 .res-logo{
