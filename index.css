@@ -8,6 +8,10 @@
     width: 100px;
 }
 
+.navitems{
+    display: flex;
+}
+
 .navitems ul{
     display: flex;
     
@@ -49,4 +53,30 @@
 .res-container{
     display: flex;
     flex-wrap: wrap;
+}
+/* shimmer ui */
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+        width: 200px;
+        height: 250px;
+        padding: 5px;
+        margin: 5px;
+        background-color: #f0f0f0;
+}
+
+/* button login*/
+
+.login-btn{
+    margin-right: 10px;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.filter-btn{
+    margin-left: 3px;
 }
