@@ -80,3 +80,9 @@
 .filter-btn{
     margin-left: 3px;
 }
+
+
+.user-data{
+    padding: 5px;
+    border: 1px solid black;
+}
