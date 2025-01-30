@@ -1,25 +1,27 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null); // Initialize with null
+  // const [resInfo, setResInfo] = useState(null); // Initialize with null
 
   const {resId} =useParams();
 
+  const resInfo=useRestaurantMenu(resId);
 
-  useEffect(()=>{
-        fetchMenu();
-    },[]);
+//   useEffect(()=>{
+//         fetchMenu();
+//     },[]);
 
-const fetchMenu=async ()=>{
-    const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.89960&lng=80.22090&restaurantId="+resId+"&catalog_qa=undefined&submitAction=ENTER");
+// const fetchMenu=async ()=>{
+//     const data=await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.89960&lng=80.22090&restaurantId="+resId+"&catalog_qa=undefined&submitAction=ENTER");
 
-    const json=await data.json();
-    setResInfo(json.data);
-    console.log(json.data);
-    console.log(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+//     const json=await data.json();
+//     setResInfo(json.data);
+//     console.log(json.data);
+//     console.log(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
     
-}
+// }
 
   // If data is still loading, show a loading message
   if (!resInfo) {

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body=()=>{
     
@@ -28,6 +29,11 @@ const Body=()=>{
         setListOfResturant(restaurants);
         setFilterRes(restaurants);
     }
+    // online status checking
+    const onlineStatus=useOnlineStatus();
+    if(onlineStatus==false){
+        return <h1>Looks! Like you are Offline PuchuPie</h1>
+    };
     // shimmer Ui
     if(listOfResturant==0){
         return <Shimmer />
@@ -84,7 +90,7 @@ const Body=()=>{
                     <ResturantCard resData={resList[2]}  />
                     <ResturantCard resData={resList[3]}  /> */}
                </div>
-              const 
+             
           </div>
      )
 };
