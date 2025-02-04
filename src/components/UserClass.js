@@ -37,7 +37,7 @@ class UserClass extends React.Component{
         const {name,login}=this.state.userInfo;
         // console.log("render"+this.props.name);
         return(
-        <div className="user-data">
+        <div className="border-2 border-amber-600 p-[5px] bg-amber-300">
 
             <h5>Name:{name}</h5>
             <h5>LoginId:{login}</h5>

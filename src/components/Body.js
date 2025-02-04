@@ -39,12 +39,12 @@ const Body=()=>{
         return <Shimmer />
     }
      return(
-          <div className="body">
-               <div className="fillter">
-                <input type="text" className="search-bar" value={searchText} onChange={(e)=>{
+          <div className="bg-orange-300">
+               <div className="p-[10px]">
+                <input type="text" className="border-pink-950 border-1 h-8 mr-2 rounded-sm bg-amber-100" value={searchText} onChange={(e)=>{
                     setSearchText(e.target.value);
                 }}/>
-                <button className="search-btn"
+                <button className="btn-primary w-20"
                 onClick={()=>{
                     // filter the restaurant card and update the ui
                     const filterRestaurant=listOfResturant.filter(
@@ -55,7 +55,7 @@ const Body=()=>{
                 }}>
                     Search
                     </button>
-                <button className="filter-btn" 
+                <button className="btn-primary" 
                 onClick={()=>{
                     const fillter=listOfResturant.filter(
                         (res)=>res.info.avgRating>4.1
@@ -65,7 +65,7 @@ const Body=()=>{
                 }}>
                     Top Rated Resturant
                 </button>
-                <button className="pizza"
+                <button className="btn-primary w-20"
                     onClick={()=>
                        {
                          const pizza=listOfResturant.filter(
@@ -79,7 +79,7 @@ const Body=()=>{
                     Pizza
                 </button>
                 </div>
-               <div className="res-container">
+               <div className="flex flex-wrap gap-5 justify-center">
                     {
                          filterRes.map((restaurant)=>(<Link key={restaurant.info.id} to={"/restaurant/"+ restaurant.info.id}>
                             <ResturantCard  resData={restaurant}/>
