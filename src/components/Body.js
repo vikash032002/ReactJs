@@ -1,13 +1,17 @@
-import ResturantCard from "./ResturantCard";
-import { useEffect, useState } from "react";
+import ResturantCard,{withPromotedLabel} from "./ResturantCard";
+import { useEffect, useState ,useContext } from "react";
 // import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body=()=>{
     
+    const{loggedInUser,setUserName}=useContext(UserContext);
+
     const [listOfResturant,setListOfResturant]=useState(/*resList*/[]);
+    const RestaurantCardPromoted=withPromotedLabel(ResturantCard);
 // for getting the filter data 
     const [filterRes,setFilterRes]=useState([]);
 
@@ -78,11 +82,18 @@ const Body=()=>{
                 >
                     Pizza
                 </button>
+
+                <label>UserName</label>
+                <input className="border-2 bg-amber-100 p-1.5" 
+                value={loggedInUser}
+                onChange={(e)=>setUserName(e.target.value)}></input>
                 </div>
                <div className="flex flex-wrap gap-5 justify-center">
                     {
                          filterRes.map((restaurant)=>(<Link key={restaurant.info.id} to={"/restaurant/"+ restaurant.info.id}>
-                            <ResturantCard  resData={restaurant}/>
+                           {
+                            restaurant.info.isOpen?<RestaurantCardPromoted resData={restaurant}/>:<ResturantCard  resData={restaurant}/>
+                           } 
                             </Link>))
                     }
                     {/* <ResturantCard resData={resList[0]}  />
