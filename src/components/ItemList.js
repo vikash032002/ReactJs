@@ -1,7 +1,18 @@
+import { useDispatch } from "react-redux";
 import { CON_URL } from "../utils/constants";
+import { addItems } from "../utils/cartSlice";
 
 const ItemList=({items})=>{
-    console.log(items);
+
+    const dispatch=useDispatch();
+
+    const handleAddItem=(item)=>{
+        // dispatch an action 
+
+        dispatch(addItems(item));
+    }
+
+    // console.log(items);
     return(
         <div className="mt-2">
             <ul>
@@ -12,7 +23,12 @@ const ItemList=({items})=>{
                    </div>
                    <div className="flex">
                    <p className="w-10/12">{item.card.info.description}</p>
-                    <img className="w-24 aspect-square object-cover rounded-md" src={CON_URL+item.card.info.imageId} />
+                    <div >
+                        <button
+                        onClick={()=>handleAddItem(item)}
+                        className="absolute border-red-400 border-2 bg-amber-400 rounded-sm m-1.5 ml-3">Add+</button>
+                        <img className="w-24 aspect-square object-cover rounded-md" src={CON_URL+item.card.info.imageId} />
+                    </div>
                    </div>
                 </div>)}
             </ul>
