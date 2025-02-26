@@ -28,7 +28,7 @@ const Header=()=>{
                          <li>Online Status:{onlineStatus?"🟢":"🔴"}</li>
                          <li><Link to="/">Home</Link></li>
                          <li><Link to="/about">About</Link></li>
-                         <li>Contact</li>
+                         <li><Link to="/contact">Contact</Link></li>
                          <li className="font-bold"><Link to="/cart">Cart ({cartItem.length} items) </Link></li>
                          <li>Login : {loggedInUser}</li>
                          <button className="rounded-sm border-[1px] border-pink-700 w-20  p-1 mr-1.5 bg-amber-100"

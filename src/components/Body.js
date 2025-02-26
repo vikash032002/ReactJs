@@ -48,7 +48,9 @@ const Body=()=>{
                 <input type="text" className="border-pink-950 border-1 h-8 mr-2 rounded-sm bg-amber-100" value={searchText} onChange={(e)=>{
                     setSearchText(e.target.value);
                 }}/>
-                <button className="btn-primary w-20"
+                <button 
+                data-testid="searchId"
+                className="btn-primary w-20"
                 onClick={()=>{
                     // filter the restaurant card and update the ui
                     const filterRestaurant=listOfResturant.filter(

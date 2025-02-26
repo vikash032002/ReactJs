@@ -3,10 +3,12 @@ import { CON_URL } from "../utils/constants";
 const ResturantCard = (props) =>{
      const {resData} = props;
 
+     console.log(resData);
+
      const {cloudinaryImageId , cuisines , avgRating , name , costForTwo }= resData?.info ;
      
      return(
-         <div className="w-[250px] m-2 p-4 bg-gray-200 border border-black rounded-lg shadow-md flex flex-col h-full">
+         <div data-testid="resCard" className="w-[250px] m-2 p-4 bg-gray-200 border border-black rounded-lg shadow-md flex flex-col h-full hover:shadow-red-400">
   {/* Image */}
   <img 
     className="w-full h-40 object-cover rounded-md" 

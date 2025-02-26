@@ -16,7 +16,7 @@ const ItemList=({items})=>{
     return(
         <div className="mt-2">
             <ul>
-                {items.map(item=> <div className="m-2 border-b-2 border-b-amber-500 p-1.5" key={item.card.info.id}>
+                {items.map(item=> <div data-testid="foodItem" className="m-2 border-b-2 border-b-amber-500 p-1.5" key={item.card.info.id}>
                    <div>
                     <span className="font-bold mr-2">{item.card.info.name}</span>
                     <span className="font-semibold">Rs-{item.card.info.price/100 || item.card.info.defaultPrice/100}</span>
